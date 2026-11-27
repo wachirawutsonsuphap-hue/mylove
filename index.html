@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Love 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Tahoma, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffe9f3, #fff0f5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #7a294b;
+}
+
+.container {
+    width: 90%;
+    max-width: 420px;
+    background: rgba(255,255,255,0.9);
+    padding: 30px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(255,105,150,0.25);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff5c99;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #ffc0d9;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+button {
+    background: #ff75a9;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 7px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4088;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.page {
+    min-height: 220px;
+    padding: 15px 5px;
+    animation: fadeIn 0.5s ease;
+}
+
+.message {
+    background: #fff0f6;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+.navigation {
+    margin-top: 20px;
+}
+
+#pageNumber {
+    color: #ff75a9;
+    font-size: 14px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    animation: float 6s linear infinite;
+    opacity: 0.7;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- หน้าใส่รหัสผ่าน -->
+<div class="container" id="login">
+
+    <h1>💌 จดหมายลับ 💌</h1>
+
+    <p>มีอะไรบางอย่างอยากให้เธออ่าน...</p>
+
+    <p>แต่ต้องใส่รหัสผ่านก่อนนะ ❤️</p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="ใส่รหัสผ่าน"
+    >
+
+    <button onclick="checkPassword()">
+        เปิดจดหมาย 💗
+    </button>
+
+    <p id="error" style="color:red;"></p>
+
+</div>
+
+
+<!-- หน้าบอกรัก 6 หน้า -->
+<div class="container hidden" id="main">
+
+    <!-- หน้า 1 -->
+    <div class="page" id="page1">
+
+        <h1>💌 ถึงคนที่เค้ารัก</h1>
+
+        <p>มีอะไรอยากบอกบี๋ด้วยนะ...</p>
+
+        <p>พร้อมอ่านหรือยัง? 💗</p>
+
+    </div>
+
+    <!-- หน้า 2 -->
+    <div class="page hidden" id="page2">
+
+        <h1>💕 ขอบคุณ</h1>
+
+        <p>ขอบคุณที่เข้ามาเป็นความสุข</p>
+
+        <p>ในทุก ๆ วันของเค้านะ</p>
+
+    </div>
+
+    <!-- หน้า 3 -->
+    <div class="page hidden" id="page3">
+
+        <h1>🌷คนพิเศษ </h1>
+
+        <p>บี๋รู้ไหมว่า...</p>
+
+        <p>บี๋เป็นคนพิเศษสำหรับเค้ามากแค่ไหน</p>
+
+    </div>
+
+    <!-- หน้า 4 -->
+    <div class="page hidden" id="page4">
+
+        <h1>🥰 ไม่ว่าจะชาติไหน</h1>
+
+        <p>ถ้าเลือกได้อีกครั้ง</p>
+
+        <p>เค้าก็ยังอยากเลือกบี๋เหมือนเดิม</p>
+
+    </div>
+
+    <!-- หน้า 5 -->
+    <div class="page hidden" id="page5">
+
+        <h1>💖 แค่บี๋</h1>
+
+        <p>อยากมีบี๋อยู่ในทุก ๆ ช่วงเวลาของชีวิต</p>
+
+        <p>ทั้งวันที่ดีและวันที่เหนื่อย</p>
+
+    </div>
+
+    <!-- หน้า 6 -->
+    <div class="page hidden" id="page6">
+
+        <h1>🎁 รักมากที่สุด</h1>
+
+        <p></p>
+
+        <div class="message">
+
+            <h2>เค้ารักบี๋นะ ❤️</h2>
+
+            <p>
+                ขอบคุณที่เป็นความสุขของเค้า<br>
+                และให้เค้าเป็นความสุขของบี๋
+            </p>
+
+            <h1>รักที่สุดเลย 💕</h1>
+
+        </div>
+        
+
+    </div>
+
+<!-- หน้า 7 -->
+<div class="page hidden" id="page7">
+    <h1>🌸 ทุกวันในวันธรรมดา</h1>
+    <p>บี๋ทำให้วันธรรมดาของเค้าพิเศษขึ้น</p>
+</div>
+
+<!-- หน้า 8 -->
+<div class="page hidden" id="page8">
+    <h1>💌 และต่อไปนี้</h1>
+    <p>ขอบคุณที่คอยรับฟังเรื่องราวของเค้า</p>
+</div>
+
+<!-- หน้า 9 -->
+<div class="page hidden" id="page9">
+    <h1>🌷 ชอบมากที่สุด</h1>
+    <p>รอยยิ้มของบี๋เป็นสิ่งที่เค้าชอบมาก</p>
+</div>
+
+<!-- หน้า 10 -->
+<div class="page hidden" id="page10">
+    <h1>💖 อย่าพึ่งออกไปไหนนะคะ</h1>
+    <p>ครึ่งทางแล้วนะ อ่านต่ออีกนิดนึง ❤️</p>
+</div>
+
+<!-- หน้า 11 -->
+<div class="page hidden" id="page11">
+    <h1>🥰 ปัจจุบันจนไปถึงอนาคต</h1>
+    <p>อยากสร้างความทรงจำดี ๆ กับบี๋อีกเยอะเลย</p>
+</div>
+
+<!-- หน้า 12 -->
+<div class="page hidden" id="page12">
+    <h1>🎀 คนเอาแต่ใจแต่ก็รักเสมอ</h1>
+    <p>ขอบคุณที่เป็นตัวเองในแบบที่บี๋เป็น</p>
+</div>
+
+<!-- หน้า 13 -->
+<div class="page hidden" id="page13">
+    <h1>🌈 ในอนาคต</h1>
+    <p>ไม่ว่าจะเจออะไร เรามาค่อย ๆ ผ่านไปด้วยกันนะ</p>
+</div>
+
+<!-- หน้า 14 -->
+<div class="page hidden" id="page14">
+    <h1>💝 รู้สึกโชคดีที่สุด</h1>
+    <p>เค้าดีใจที่เราได้รู้จักกัน</p>
+</div>
+
+<!-- หน้า 15 -->
+<div class="page hidden" id="page15">
+    <h1>✨ และจะเป็นในทุก ๆ เวลา</h1>
+    <p>บี๋เป็นหนึ่งในเรื่องราวที่ดีที่สุดของเค้า</p>
+</div>
+
+<!-- หน้า 16 -->
+<div class="page hidden" id="page16">
+    <h1>💗 ดูแลกันนะคะ</h1>
+    <p>อยากดูแลความรักของเราให้ดีเสมอ</p>
+</div>
+
+<!-- หน้า 17 -->
+<div class="page hidden" id="page17">
+    <h1>🌻 ชอบเสียงหัวเราะบี๋มากกก</h1>
+    <p>ขอให้เรามีเสียงหัวเราะด้วยกันอีกเยอะ ๆ</p>
+</div>
+
+<!-- หน้า 18 -->
+<div class="page hidden" id="page18">
+    <h1>💞 ขอบคุณนะคะ</h1>
+    <p>ขอบคุณทุกช่วงเวลาที่เราได้ใช้ด้วยกัน</p>
+</div>
+
+<!-- หน้า 19 -->
+<div class="page hidden" id="page19">
+    <h1>💘 กำลังยิ้มอยู่ใช่ไหมล้าาาา</h1>
+    <p>อีกหน้าเดียวก็จะถึงข้อความสุดท้ายแล้ว</p>
+</div>
+
+<!-- หน้า 20 -->
+<div class="page hidden" id="page20">
+    <h1>🎉 หน้าสุดท้ายนี้ อยากจะบอกว่า 🎉</h1>
+
+    <div class="message">
+        <h2>รักบี๋ที่สุดเลย ❤️</h2>
+
+        <p>
+            ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในชีวิตเค้า<br>
+            ขอให้เรามีความสุขด้วยกันไปนาน ๆ
+            และขอบคุณพระเจ้าไปด้วยกันนะคะ อาเมน ❤️
+        </p>
+
+        <h1>รักนะ 💕</h1>
+    </div>
+</div>
+
+
+    <!-- ปุ่มเปลี่ยนหน้า -->
+    <div class="navigation">
+
+        <button onclick="previousPage()" id="backBtn">
+            ⬅ หน้าก่อน
+        </button>
+
+        <button onclick="nextPage()" id="nextBtn">
+            หน้าถัดไป ➜
+        </button>
+
+    </div>
+
+    <p id="pageNumber">หน้า 1 / 6</p>
+
+</div>
+
+
+<script>
+
+// รหัสผ่าน
+const correctPassword = "020925";
+
+
+// ตรวจสอบรหัสผ่าน
+function checkPassword() {
+
+    const password =
+        document.getElementById("password").value;
+
+    if (password === correctPassword) {
+
+        document.getElementById("login")
+            .classList.add("hidden");
+
+        document.getElementById("main")
+            .classList.remove("hidden");
+
+        showPage(1);
+
+    } else {
+
+        document.getElementById("error")
+            .innerText = "รหัสผิดนะ ลองใหม่อีกครั้ง 💔";
+
+    }
+
+}
+
+
+// ระบบเปลี่ยนหน้า
+let currentPage = 1;
+
+const totalPages = 20;
+
+
+function showPage(page) {
+
+    // ซ่อนทุกหน้า
+    for (let i = 1; i <= totalPages; i++) {
+
+        document.getElementById("page" + i)
+            .classList.add("hidden");
+
+    }
+
+    // แสดงหน้าที่เลือก
+    document.getElementById("page" + page)
+        .classList.remove("hidden");
+
+    // แสดงเลขหน้า
+    document.getElementById("pageNumber").innerText =
+        "หน้า " + page + " / " + totalPages;
+
+    // ซ่อนปุ่มย้อนกลับในหน้าแรก
+    document.getElementById("backBtn").style.display =
+        page === 1 ? "none" : "inline-block";
+
+    // เปลี่ยนข้อความปุ่มในหน้าสุดท้าย
+    document.getElementById("nextBtn").innerText =
+        page === totalPages
+        ? "จบแล้ว 💗"
+        : "หน้าถัดไป ➜";
+
+}
+
+
+// ไปหน้าถัดไป
+function nextPage() {
+
+    if (currentPage < totalPages) {
+
+        currentPage++;
+
+        showPage(currentPage);
+
+    } else {
+
+        alert("รักเธอที่สุดเลยนะ 💖");
+
+    }
+
+}
+
+
+// กลับหน้าก่อน
+function previousPage() {
+
+    if (currentPage > 1) {
+
+        currentPage--;
+
+        showPage(currentPage);
+
+    }
+
+}
+
+
+// สร้างหัวใจลอย
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "💗";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 9000);
+
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
